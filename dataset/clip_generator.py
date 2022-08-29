@@ -129,12 +129,12 @@ def generate_clips_from_textfile(
     logging.info("Searching text for matching fragments...")
     search = FuzzySearch(text)
 
-    logging.info("Changing sample rate...")
-    converted_audio_path = change_sample_rate(audio_path, DEFAULT_RATE)
+    # logging.info("Changing sample rate...")
+    # converted_audio_path = change_sample_rate(audio_path, DEFAULT_RATE)
 
     # Produce segments
     logging.info("Fetching segments...")
-    segments = align.get_segments(converted_audio_path)
+    segments = align.get_segments(audio_path)
 
     # Match with text
     logging.info("Matching segments...")
