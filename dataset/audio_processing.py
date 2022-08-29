@@ -5,7 +5,7 @@ import re
 import os
 
 from dataset.utils import add_suffix
-
+from pathlib import Path
 devnull = open(os.devnull, "w")
 TARGET_SAMPLE_RATE = 22050
 TARGET_BITRATE = "32k"
@@ -28,7 +28,7 @@ def convert_audio(input_path):
         Path of the converted audio
     """
     assert os.path.isfile(input_path), f"{input_path} does not exist"
-    output_path = input_path.split(".")[0] + "-converted.wav"
+    output_path = Path(input_path).parent / f"{Path(input_path).name.split('.')[0]}-converted.wav"
     assert not os.path.isfile(output_path), f"{output_path} already exists"
     check_output(
         [
