@@ -500,6 +500,7 @@ def upload_dataset():
     dataset_name = request.values["name"]
     dataset_directory = os.path.join(paths["datasets"], dataset_name)
     audio_folder = os.path.join(dataset_directory, AUDIO_FOLDER)
+    print(f"DATASET DIR :: { dataset_directory }")
     assert not os.path.isdir(dataset_directory), "Output folder already exists"
 
     start_progress_thread(
